@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  hlds:
+    container_name: counter-strike-1.6_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      - PORT=27015
+      - MAP=aim_map.bsp
+      - MAXPLAYERS=8
+      - SV_LAN=1
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015"
